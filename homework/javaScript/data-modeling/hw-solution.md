@@ -20,13 +20,9 @@ As it turns out, the answer to that question depends heavily on what the
 application will do and how it will be used. If the application is for selling
 laptops, we might be pick the following attributes.
 
-  > A Laptop has...
-  > - a sale price
-  > - a brand name
-  > - an amount of RAM, in GB
-  > - a disc size, in GB
-  > - a processor speed, in GHz
-  > - a monitor size, in inches
+  let toDoList = {
+    title: 
+  }
   >
   > e.g.
 
@@ -60,6 +56,19 @@ track of whether tasks have been completed, it will also keep track of
 how long each task took to complete. Tasks can be grouped into 'projects' to
 keep them organized.
 
+  var task = {
+    title: "My to-do list";
+    date-started: "04/14/2016";
+    date-completed: "04/15/2016";
+    duration: "24 hours";
+  }
+
+    var projects = {
+    title: "my to-do project";
+    description: "my big project";
+    setOfTasks: "list of various tasks";
+
+    }
 > Since this is a to-do list, a 'task' is a natural abstraction, and in any case
 > 'tasks' and 'projects' are both mentioned in the description. They are also
 > likely to have their own data (such as names and/or descriptions), so it
