@@ -74,15 +74,9 @@ keep them organized.
 > likely to have their own data (such as names and/or descriptions), so it
 > makes more sense to represent tasks as objects rather then just strings.
 >
-> A Task has:
-> -   a name
-> -   a time when it is begun
-> -   a time when it is completed
->
-> A Project has:
-> -   a name
-> -   a description
-> -   a set of tasks
+> A task has a name, a date, and a start/finish time.
+
+> A Project has  a main namne, a manin title, and a main description.
 
 ```javascript
 var task {
@@ -102,11 +96,7 @@ var project = {
 
 In this app, users can upload photos to their accounts and share them with others. These photos can be grouped into albums.
 
-> Based on the description, photos and albums are key parts of the app's
-> functionality, so making entities to represent them makes sense. However,
-> the description also mentions users -- maybe at some point we'll need to keep
-> track of which user uploaded which picture, or created which album. In that
-> case, it might make sense to represent a user as well.
+> Having an account would require a username to state who is uploading a set of photos/albums to the specific account. Organizing these photos would require different albums labeled with names. Once the photo is uploaded, it owuld require a description, a date, and a URL to find the specific picture. By doing this, we are strictly organizing different uploads as well as securing them for the specific user who uploaded the photos.
 >
 > A Photo has:
 > -   a name

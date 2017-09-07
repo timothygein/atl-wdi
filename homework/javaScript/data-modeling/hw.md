@@ -60,13 +60,39 @@ track of whether tasks have been completed, it will also keep track of
 how long each task took to complete. Tasks can be grouped into 'projects' to
 keep them organized.
 
-> Answer here
+>  var task = {
+    title: "My to-do list";
+    date-started: "04/14/2016";
+    date-completed: "04/15/2016";
+    duration: "24 hours";
+  }
+
+    var projects = {
+    title: "my to-do project";
+    description: "my big project";
+    setOfTasks: "list of various tasks";
+
+    }
 
 ### 2. Photo Sharing App
 
-In this app, users can upload photos to their accounts and share them with others. These photos can be grouped into albums.
+Having an account would require a username to state who is uploading a set of photos/albums to the specific account. Organizing these photos would require different albums labeled with names. Once the photo is uploaded, it owuld require a description, a date, and a URL to find the specific picture. By doing this, we are strictly organizing different uploads as well as securing them for the specific user who uploaded the photos.
 
-> Answer here
+let  photo = {
+  name: 'photo from new room';
+  description: 'new and reorganized';
+  url: "insert link here";
+};
+
+let album = {
+  name: 'Trip to the Home';
+  setOfPhotos: ['set1', 'set2', 'set3'];
+};
+
+const user = {
+  username: 'timothygein';
+  password: 91password;
+  dateuploaded: 06/27/2007;
 
 ### 3. Home Automation Manager
 
@@ -75,7 +101,18 @@ track of the time and temperature of the house that it monitors, and use that
 information to turn on and off different lights and adjust the thermostat up
 and down.
 
-> Answer here
+> Different lights have different brightness levels as well as locations and names. Same goes for homes having different temperatures and sets of lights. 
+
+var light = {
+  levelOfBrightness: 'dim',
+  location: 'bathroom',
+  name: 'overhead'
+};
+
+var homeSystem = {
+  temp: '98 degrees',
+  setOfLights: ['bathroom', 'sun room', 'master bedroom']
+};
 
 ### 4. Sneaker Store
 
@@ -83,7 +120,24 @@ This app will allow customers to browse a list of products (sneakers, in this
 case), add those products to a cart, and save that cart as a past order once the
 purchase is complete.
 
-> Answer here
+>  Different products have different names and descriptions with the price varying on the type of product you choose. Order items only come in bulk when you order the product. Every order comes with a set of order items, the status of the order, and an estimated date/time of arival. 
+
+var product = {
+  name: 'Manhunt',
+  description: 'The greatest game you will ever play',
+  price: '$29.99'
+};
+
+var XboxOrder = {
+  product: 'Xbox System',
+  quantity: 1
+};
+
+var order: {
+  setOfOrderItems: [xboxOrder],
+  status: 'shipped',
+  dateCompleted: 'incomplete'
+};
 
 ## Representing Abstractions in Code
 
@@ -100,13 +154,7 @@ need to travel to get from one station to another. Two abstractions that you
 decide to use to model your application's data are Stations and Rail Lines, with
 the following properties:
 
-A Station has:
--   a name
--   a description
 
-A Rail Line has:
--   a name
--   a set of stations that it hits
 
 The team has decided to represent these abstractions in the following way.
 
@@ -137,9 +185,7 @@ var exampleLine = {
 // Stop and line descriptions from Wikipedia (https://en.wikipedia.org)
 ```
 
-What are some advantages and disadvantages of choosing these representations? Please give at least one example of each.
-
-> Answer here
+An advantage would be giving you the exact time of your arival so you can better prepare for travel. A disadvantage would be it not telling you if there are obstructions up ahead that could delay your arival time.
 
 ### 6. Doctor Appointment App
 
@@ -242,7 +288,7 @@ Under what circumstances might one representation be a better choice than the
 other? Are there any circumstances in which the other representation might be
 the better choice?
 
-> Answer here
+> roots representation inside reputation although there may be confusion about which doctor is for which patient
 
 ## Tying It Together
 
@@ -253,13 +299,6 @@ You've been tasked with building an in-browser tic-tac-toe game.
 a.  What are some possible entities that your application might use to model its
     data? Please pick at least two, with at least two properties apiece.
 
-  > Answer here
+  > calculating three-in-a-row is a little easier. 
+  it allows you to perfectly reconstruct the history of the game
 
-b.  How might those entities be represented in JavaScript code?
-
-  > Answer here
-
-c.  Justify your choices in a) and b). Why these entities? Why these
-    representations?
-
-  > Answer here

@@ -28,7 +28,7 @@ function isCharacterAVowel(c) {
   if (vowels.indexOf(c) !== -1) {
     return true;
   } 
-  return false;
+  return false; 
 }
 
 // Question 4

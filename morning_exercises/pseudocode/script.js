@@ -3,6 +3,10 @@
 // Barrels O' RUM
 
 var barrels = function(small, large, total){
+  var smallBarrel = 60;
+  var largeBarrel = (totalCost - (small * smallBarrel)) / large;
+
+  return largeBarrel;
 };
 
 //*************************
@@ -10,7 +14,7 @@ var barrels = function(small, large, total){
 // Sailing the Seas
 
 var shipFuelCost = function(fuelPrice, milesPerGallon){
-  //your code here
+  
 };
 
 //*************************

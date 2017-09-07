@@ -1,16 +1,29 @@
 // Question 1
-function maxOfTwoNumbers() {
-
+function maxOfTwoNumbers(x,y) {
+if (x<y) {
+return y
+}
+else if (y<x){
+    return x 
 }
 
 // Question 2
-function maxOfThree() {
+function maxOfThree(x, y, z) {
+if (x>y && x>z)
+    return x
+}
+if (y>x && y>z){
+    return y
+}
 
+if (z>y && z>x){
+    return z
 }
 
 // Question 3
-function isCharacterAVowel() {
-
+function isCharacterAVowel(str) {
+let arr = [a,e,i,o,u] 
+return str.contains(arr)
 }
 
 // Question 4
