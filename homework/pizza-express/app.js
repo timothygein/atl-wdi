@@ -4,6 +4,11 @@ var app     = express();
 var port    = 3000;
 app.get('/greeting', function(req, res) {
     console.log(req.query);
+
+    var hbs = require('hbs');
+    
+    app.set("view engine", "hbs");
+    app.set('views', './views');
     
     res.render('greeting', {
       data: req.query.saying
