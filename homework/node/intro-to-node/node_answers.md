@@ -6,36 +6,34 @@
 ### The 6 highest-starred npm packages are:
 
 # Library 1 Name
-
+lodash
 ### Description:
-brief brief description here
-
+modular utilities
 ### Total Downloads last month:
-
+43,285,444 downloads in the last month
 # Library 2 Name
-
+request
 ### Description:
-brief description here
+simplified http
 
-### Total Downloads last month:
+### Total Downloads last month: 23,125,452 downloads in the last month
 
 # Library 3 Name
-
+async
 ### Description:
-brief description here
-
-### Total Downloads last month:
+Higher-order functions and common patterns
+### Total Downloads last month:46, 206, 449
 
 # Library 4 Name
-
+chalk
 ### Description:
-brief description here
-
-### Total Downloads last month:
+terminal string styling done right
+### Total Downloads last month: 32,785,443 
 
 # Library 5 Name
-
+express
 ### Description:
-brief description here
+Fast, unopinionated, minimalist web framework
 
 ### Total Downloads last month:
+14,642,701 downloads in the last month
