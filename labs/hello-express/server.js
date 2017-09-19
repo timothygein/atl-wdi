@@ -1,20 +1,32 @@
-var express = require('express'); // Loading the express module on our server
-var app = express(); // Creates a new instance of express on our server
+const express = require('express');
+const app = express();
+const hbs = require('hbs');
 
+app.set("view engine", "hbs");
+app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(req, res) { 
-  // when a request comes in at localhost:3000, it will respond 
+app.get('/greeting', (req, res) => {
+  console.log(req.query);
+  
+  res.render("greeting", {
+    saying: req.query.saying,
+    name: "Jamie"
+  });
 });
-app.get('/greeting', function(req, res) => { 
-    res.send('Hey WDI 12')
-});
-app.get('/rihanna', function(req, res) => { 
-    res.send('work work work work')
-});
-var port = process.env.PORT || 3000; // tells the server where to listen for requests
 
-app.listen(port, function() {
-  // tells the server where to listen for requests on port 3000
+app.get('/favorite-foods', (req, res) => {
+    var favoriteFoods = ["Jeni's Almond Butter ice cream", 
+    'Tacos from Superica', 'A Breakfast Sandwich from Gjelina to go in Venice', 
+    'Croissants from Bottega Louie in Downtown Los Angeles', 
+    'Pizza from Little Star in San Francisco'];
+    
+    res.render('favorite-foods', {
+      favoriteFoods: favoriteFoods
+  })
+});
 
-  console.log('hello-express is listening on port ' + port);
-}); // actualizing the line above
+const PORT = 3000;
+
+app.listen(PORT, () => {
+  console.log("Express is listening on port ", PORT);
+});
