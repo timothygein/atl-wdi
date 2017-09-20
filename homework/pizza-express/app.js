@@ -9,6 +9,7 @@ app.get('/greeting', function(req, res) {
     
     app.set("view engine", "hbs");
     app.set('views', './views');
+    app.use(express.static(__dirname + '/public'));
     
     res.render('greeting', {
       data: req.query.saying
