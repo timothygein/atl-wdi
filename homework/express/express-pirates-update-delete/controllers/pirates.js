@@ -5,7 +5,6 @@
 var express = require("express");
 var router = express.Router();
 var pirates = require('../models/pirates.js');
-
 //==============================
 // READ
 //==============================
@@ -35,15 +34,40 @@ router.get('/:id', function(req, res){
 
 
 //==============================
-// CREATE
+// EDIT
+router.get('/:id/edit', function(req, res){
+    res.render('pirates/edit', {
+      pirates: {
+        id: req.params.id,
+        name: pirates[req.params.id].description,
+		birthplace: pirates[req.params.id].description,
+		death_year: pirates[req.params.id].description,
+		base: pirates[req.params.id].description,
+		nickname: pirates[req.params.id].description,
+      }
+    });
+  });
 //==============================
 
 //==============================
 // UPDATE
+router.put('/:id', function(req, res) {
+	var piratesEdit = data.seededPirates[req.params.id];
+
+	piratesToEdit.description = req.body.description;
+	piratesToEdit.urgent = req.body.urgent;
+
+	res.redirect('/pirates');
+})
 //==============================
 
 //==============================
 // DESTROY
+router.delete('/:id', function(req, res) {
+    data.seededTodos.splice(req.params.id, 1); // remove the item from the array
+
+    res.redirect('/pirates');  // redirect back to the index route
+});
 //==============================
 
 //==============================

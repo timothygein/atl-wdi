@@ -7,7 +7,7 @@ const data = require("../data.js");
 router.get('/todos', function(req,res) {
 
     res.render('/todos/index', {
-      todos: seededTodos
+      todos: data.seededTodos
     });
 });
 
@@ -38,5 +38,43 @@ router.post('/', (req, res) => {
     data.seededTodos.push(newTodo);
     res.send("Successfully created a todo")
 });
+
+/*edit todos*/
+
+router.get('/:id/edit', function(req, res){
+    res.render('todos/edit', {
+      todo: {
+        id: req.params.id,
+        description: data.seededTodos[req.params.id].description,
+        urgent: data.seededTodos[req.params.id].urgent,
+      }
+    });
+  });
+
+  /* Update TODOS */
+  router.put('/:id', function(req, res) {
+    var todoToEdit = data.seededTodos[req.params.id];
+  
+    todoToEdit.description = req.body.description;
+    todoToEdit.urgent = req.body.urgent;
+  
+    res.redirect('/todos');
+  })
+
+  /*Delete TODOS*/
+
+  router.delete('/:id', function(req, res) {
+    data.seededTodos.splice(req.params.id, 1); // remove the item from the array
+
+    res.redirect('/todos');  // redirect back to the index route
+});
+
+router.post('/', (req, res) => {
+    console.log(req.body);
+    const newTodo = req.body;
+    data.seededTodos.push(newTodo);
+    res.redirect('/todos');
+});
+
 
 module.exports = router;
