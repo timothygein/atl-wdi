@@ -6,13 +6,20 @@ var hbs         = require('hbs');
 /* app settings*/
 var app         = express();
 var port        = process.env.PORT || 3000;
+const todosController =  require("./controllers/todos");
 /* set up the application params*/
+
 
 // log
 app.use( logger('dev'));
 
+app.use(bodyParser.urlencoded
+
 /*Views*/
 app.set('view engine', 'hbs');
+
+/* CONTROLLERS */
+app.use("/todos", todosController);
 
 /* HOME */
 app.get('/', function(req,res) {
