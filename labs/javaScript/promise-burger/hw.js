@@ -7,7 +7,11 @@ const kitchen = require('./kitchen');
 // Call this method and console.log the data that comes back when the Promise is resolved.
 
 //CODE FOR QUESTION 1 HERE
-
+kitchen.readMenu()
+.then((menu)=>{
+  console.log("Successfully retrieved data");
+  console.log(menu)
+})
 
 // Order Some Food
 /* *************************************************************** */
@@ -16,14 +20,20 @@ const kitchen = require('./kitchen');
 //  Console.log the data that comes back about this burger.
 
 // CODE FOR QUESTION 2 HERE
-
-
+kitchen.order(("Big Bad Voodoo Patty"))
+.then((item) => {
+  console.log(item)
+})
 // 3. Try and use the same method to order a `quesadilla`.  
 //  Since Promise Burger only serves burgers, this will throw an error.  
 //  Make sure that your Promise can be dealt with when it is rejected.
 
 // CODE FOR QUESTION 3 HERE
-
+kitchen.order("quesadilla")
+.catch((error)=>{
+  console.log(error)
+  console.log("you screwed me")
+})
 
 // Add A Burger To The Menu
 /* *************************************************************** */
@@ -39,8 +49,16 @@ const newBurger = {
   "price": 28.95,
   "description": ` It becomes difficult to even describe this, the most preposterous of our Bypass Burgers. All you really need to know is that we use three burger patties, three fried eggs, fourteen slices of American cheese, and ten slices of bacon, all packed between two grilled cheese sandwiches. Figuring out how to add condiments is completely up to you. It’s served in a big bowl of french fries and tater tots covered, in lots of our Cheesy-Cheese Goo. Enjoy!`
 }
-
 // CODE FOR QUESTION 4 HERE
+
+kitchen.addToMenu(newBurger)
+.then((menu)=>{
+  console.log(menu);
+})
+
+
+
+
 
 // 5. Validate that the new item has been added to the menu by calling `readMenu` again.  
 // We only want to call `readMenu` after we get a response that is successful. 
