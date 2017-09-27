@@ -6,9 +6,13 @@
 
 	<div id="edit-form" class="donut-container-show">
 
+    <a href="/donuts/{{student._id}}/edit">Edit</a>
+    <a href="/donuts">Back to All Donuts</a>
+    
 
-		<<<<< YOUR WHOLE FORM GOES HERE >>>>>
-
+    <form action="/donuts/{{donut._id}}?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+    </form>
 
 		<div id="img-preview">
 			<img src="{{donut.img}}">
