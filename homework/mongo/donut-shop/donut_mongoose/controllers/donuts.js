@@ -108,7 +108,21 @@ router.get('/:id/edit', (request, response) => {
 // Create a PUT update route "/:id" that updates the donut and
 // redirects back to the SHOW PAGE (not index)
 
+router.put('/:id', (request, response) => {
+    
+        const donutIdToUpdate = request.params.id
 
+        const updatedDonut = request.body
+
+        DonutShop.findByIdAndUpdate(donutIdToUpdate, updatedDonut, { new: true })
+            .then(() => {
+    
+                response.redirect(`/donuts/${donutIdToUpdate}`)
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    })
 
 //======================
 // DELETE
