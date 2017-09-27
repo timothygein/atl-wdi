@@ -3,9 +3,9 @@
 //======================
 const express = require('express')
 const router = express.Router()
-const Schema = require("../db/schema.js");
+const Schema = require("/schema.js");
 
-const DonutShop = Schema.DonutModel;
+const newDonuts = Schema.DonutModel;
 
 
 //======================
@@ -13,7 +13,7 @@ const DonutShop = Schema.DonutModel;
 //======================
 // Create a GET index route "/" that sends all donuts to index.hbs
 router.get('/', (request, response) => {
-        DonutShop.find({})
+        newDonuts.find({})
             .then((donuts) => {
     
                
@@ -33,7 +33,7 @@ router.get('/', (request, response) => {
 // Create a GET new route "/new" that renders the new.hbs form
 router.get('/new', (request, response) => {
 
-        response.render('donut/new')
+        response.render('donuts/new')
     })
 
 
@@ -44,10 +44,10 @@ router.get('/new', (request, response) => {
 router.get('/:id', (request, response) => {
         const DonutsId = request.params.id
          
-        DonutShop.findById(donutId)
+        newDonuts.findById(donutId)
             .then((donut) => {
-                response.render('donut/show', {
-                    donut: donut
+                response.render('donuts/show', {
+                    donuts: donuts
                 })
             })
             .catch((error) => {
@@ -68,7 +68,7 @@ router.get('/:id', (request, response) => {
 router.post('/', (request, response) => {
         const newDonut = request.body
     
-        DonutShop.create(newDonut)
+        newDonuts.create(newDonut)
             .then(() => {
                 response.redirect('/donuts')
             })
@@ -89,10 +89,10 @@ router.get('/:id/edit', (request, response) => {
 
         const donutId = request.params.id
     
-        DonutShop.findById(donutId)
+        newDonuts.findById(donutId)
             .then((donut) => {
-                response.render('donut/edit', {
-                    donut: donut
+                response.render('donuts/edit', {
+                    donuts: donuts
                 })
             })
             .catch((error) => {
@@ -114,7 +114,7 @@ router.put('/:id', (request, response) => {
 
         const updatedDonut = request.body
 
-        DonutShop.findByIdAndUpdate(donutIdToUpdate, updatedDonut, { new: true })
+        newDonuts.findByIdAndUpdate(donutIdToUpdate, updatedDonut, { new: true })
             .then(() => {
     
                 response.redirect(`/donuts/${donutIdToUpdate}`)
@@ -134,7 +134,7 @@ router.get('/:id/delete', (request, response) => {
     
         const donutId = request.params.id
     
-        DonutShop.findByIdAndRemove(donutId)
+        newDonuts.findByIdAndRemove(donutId)
             .then((donut) => {
                 
                 response.redirect('/donuts')
