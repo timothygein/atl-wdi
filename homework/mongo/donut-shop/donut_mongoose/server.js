@@ -10,6 +10,16 @@ var methodOverride = require("method-override");
 var hbs = require("hbs");
 var logger = require('morgan');
 
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost/donut_store");
+
+const db = mongoose.connection;
+
+db.on('open', () => {
+    console.log("Mongoose is connected")
+})
+
+db.on('error', (err) => console.log(err));
 
 //======================
 // MIDDLEWARE
