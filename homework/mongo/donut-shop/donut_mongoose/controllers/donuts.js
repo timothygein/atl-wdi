@@ -130,9 +130,21 @@ router.put('/:id', (request, response) => {
 // Create a DELETE delete route "/:id" that deletes the donut and
 // redirects back to index page "/"
 
-
+router.get('/:id/delete', (request, response) => {
+    
+        const donutId = request.params.id
+    
+        DonutShop.findByIdAndRemove(donutId)
+            .then((donut) => {
+                
+                response.redirect('/donuts')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    })
 
 //======================
 // EXPORTS
 //======================
-// export router with module.exports
+module.exports = router 
