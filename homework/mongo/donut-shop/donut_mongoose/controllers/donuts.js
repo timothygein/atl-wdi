@@ -1,13 +1,29 @@
 //======================
 // REQUIREMENTS
 //======================
-// require express, router, mongoose, Donut schema
+const express = require('express')
+const router = express.Router()
+const Schema = require("../db/schema.js");
+
+const DonutShop = Schema.DonutModel;
 
 
 //======================
 // INDEX
 //======================
 // Create a GET index route "/" that sends all donuts to index.hbs
+router.get('/', (request, response) => {
+        DonutShop.find({})
+            .then((donuts) => {
+    
+               
+                response.render('donuts/index', {
+                    donuts: donuts
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
 
 
 
@@ -15,14 +31,31 @@
 // NEW
 //======================
 // Create a GET new route "/new" that renders the new.hbs form
+router.get('/new', (request, response) => {
 
+        response.render('donut/new')
+    })
 
 
 //======================
 // SHOW
 //======================
 // Create a GET show route "/:id" that renders the donut's show page
-
+router.get('/:id', (request, response) => {
+        const DonutsId = request.params.id
+         
+        DonutShop.findById(donutId)
+            .then((donut) => {
+                response.render('donut/show', {
+                    donut: donut
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    
+    })
+    
 
 
 
