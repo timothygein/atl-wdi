@@ -65,6 +65,19 @@ router.get('/:id', (request, response) => {
 // Create a POST index route "/" that creates a new donut
 // and upon success redirects back to the index page "/"
 
+router.post('/', (request, response) => {
+        const newDonut = request.body
+    
+        DonutShop.create(newDonut)
+            .then(() => {
+                response.redirect('/donuts')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    })
+    
+
 
 
 //======================
@@ -72,7 +85,21 @@ router.get('/:id', (request, response) => {
 //======================
 // Create a GET edit route "/:id/edit" that renders the edit.hbs page and
 // sends that donut's data to it
+router.get('/:id/edit', (request, response) => {
 
+        const donutId = request.params.id
+    
+        DonutShop.findById(donutId)
+            .then((donut) => {
+                response.render('donut/edit', {
+                    donut: donut
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    
+    })
 
 
 //======================
