@@ -21,13 +21,14 @@
 		<h3>Description:</h3>
 			<p>
 
-				<<<< DONUT DESCRIPTION HERE >>>>
+				    <div>Name: {{donut.name}}</div>
+
 
 			</p><br>
 		<h3>Price:</h3>
 			<p id="cost">$
 
-				<<<< DONUT PRICE HERE >>>> each</p><br>
+				    <div>Price: {{donut.price}}</div>Each</p><br>
 
 			<h3 id="quantity">
 
@@ -37,11 +38,14 @@
 
 			<br>
 
-			<<<< LINK TO THE DONUT's EDIT PAGE >>>>
+			<a href="/donuts/{{donut._id}}/edit">Edit</a>
 
 			<<<< BONUS: BUTTON THAT UPDATES THE COUNT >>>>
 
 		</div>
 
-		<<<< BUTTON THAT DELETED THE DONUT >>>>
+			<form action="/donuts/{{donut._id}}?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+
 </main>
