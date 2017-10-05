@@ -4,25 +4,25 @@ import pizzaData from '../pizzaData.js'
 import MenuItem from './MenuItem.jsx'
 class MenuList extends Component {
     render () {
-        return (
-            <div>
-                <h1>Menu</h1>
-        {
-            pizzaData.map((pizza, index) => {
-                return <MenuItem
+        const menuItem = pizzaData.map((pizza, index) => {
+     return <MenuItem
+                key={index}
+                image={pizza.image}
                 name={pizza.name}
                 price={pizza.price}
                 description={pizza.description}
-                image={pizza.image} />
+                />
             })
-        }
-
+    
+    return (
+        <div className="menu" id="menu">
+        <h1>Menu</h1>
+        <div className="menu-container">
+            {menuItem}
         </div>
-        )
 
-    }
-
-}
+    </div>    
+    )}}
 
 
 

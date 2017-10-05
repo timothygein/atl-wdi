@@ -3,7 +3,7 @@ import '../index.css';
 class MenuItem extends Component {
  render() {
    return (
-     <div className="menu-container">
+     
          <div id="menu" className="menu-item">
          <div className="menu-item-img">
        <img src={this.props.image} />
@@ -18,7 +18,6 @@ class MenuItem extends Component {
            </div>
            </div>
        </div>
-     </div>
      </div>
    );
  }
