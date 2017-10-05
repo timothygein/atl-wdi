@@ -6,7 +6,7 @@ class MenuItem extends Component {
      
          <div id="menu" className="menu-item">
          <div className="menu-item-img">
-       <img src={this.props.image} />
+       <img src={this.props.image} alt={`${this.props.name}`}/>
          </div>
        <div className="menu-item-name">
             {this.props.name}
