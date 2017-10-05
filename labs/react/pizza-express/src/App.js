@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './index.css'
 
-
-
 import Description from './components/Description.jsx'
 import MenuList from './components/MenuList.jsx'
+import LocationList from './components/LocationList.jsx'
+
 class App extends Component {
   render() {
     return (
@@ -24,6 +24,11 @@ class App extends Component {
        </div>
        <div className="menu">
         <MenuList />
+        </div>
+        <div>
+          <div>
+          <LocationList />
+          </div>
         </div>
       </div>
     

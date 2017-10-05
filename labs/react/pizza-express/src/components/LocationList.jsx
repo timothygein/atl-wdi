@@ -1,14 +1,30 @@
 import React, { Component } from 'react'
 
+import locationData from '../locationData.js'
+import Location from './Location.jsx'
+
 
 class LocationList extends Component {
     render() {
-        return (
-            <div className="App">
-                <h1>
+        const location = locationData.map((location, index) => {
+            return <Location
+            name={location.name}
+            address={location.address}
+            phone={location.phone}
+            />
+        })
+
+
+
+        return(
+            <div id="locations">
+                <h1>Locations</h1>
+            <div className="locations">
+            {location}
+            </div>
+            </div>
         )
     }
 }
 
-
-export default App;
+export default LocationList;
