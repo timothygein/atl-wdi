@@ -41,16 +41,21 @@ class App extends Component {
    _searchById = (event) => {
     const Id = event.target.Id.value
      axios.get(`http://www.omdbapi.com/?apikey=d31f1a94&i=${Id}`, {
-             params: {
-                 apikey: 'd31f1a94'
-            }
-        }).then((response) => {
-            const _searchById = response.data.Id
-
-       }).catch((error) => {
+    }).then((response) => {
+          console.log(response)
+            this.setState({ 
+              id: response.data.imdbID,
+              title: response.data.Title,
+              year: response.data.Year, 
+              director: response.data.Director,
+              genre: response.data.Genre,
+              plot: response.data.plot
+            })
+        }).catch((error) => {
             console.log(error)
         })
-      }
+      
+    }
 
 
   //Pass _searchByTitle, _searchById, and this.state.movie to it's appropriate child components.
@@ -62,7 +67,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Search searchByTitle={this._searchByTitle} searchById={this._searchById}/>
-        <Movie title={this.state.title} year={this.state.year} director={this.state.director} genre={this.state.genre} plot={this.state.plot} />
+        <Movie id={this.state.id} title={this.state.title} year={this.state.year} director={this.state.director} genre={this.state.genre} plot={this.state.plot} />
       </div>
     );
   }
