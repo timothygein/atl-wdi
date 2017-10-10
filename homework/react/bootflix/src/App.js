@@ -10,7 +10,10 @@ class App extends Component {
     super();
     this.state = {
       title: '',
-      year: ''
+      year: '',
+      director: '',
+      genre: '',
+      plot: ''
     }
   }
 
@@ -24,7 +27,10 @@ class App extends Component {
           console.log(response)
             this.setState({ 
               title: response.data.Title,
-              year: response.data.Year 
+              year: response.data.Year, 
+              director: response.data.Director,
+              genre: response.data.Genre,
+              plot: response.data.plot
             })
         }).catch((error) => {
             console.log(error)
@@ -32,22 +38,21 @@ class App extends Component {
       
     }
 
-  _searchById = (event) => {
-    axios.get('http://www.omdbapi.com/', {
-            params: {
-                apikey: 'd31f1a94'
+   _searchById = (event) => {
+    const Id = event.target.Id.value
+     axios.get(`http://www.omdbapi.com/?apikey=d31f1a94&i=${Id}`, {
+             params: {
+                 apikey: 'd31f1a94'
             }
         }).then((response) => {
             const _searchById = response.data.Id
 
-        }).catch((error) => {
+       }).catch((error) => {
             console.log(error)
         })
       }
 
-  componentWillMount(){
-    this._searchById()
-  }
+
   //Pass _searchByTitle, _searchById, and this.state.movie to it's appropriate child components.
   render() {
     console.log(this.state.title)
@@ -57,7 +62,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Search searchByTitle={this._searchByTitle} searchById={this._searchById}/>
-        <Movie />
+        <Movie title={this.state.title} year={this.state.year} director={this.state.director} genre={this.state.genre} plot={this.state.plot} />
       </div>
     );
   }
