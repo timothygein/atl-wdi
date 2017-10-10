@@ -39,8 +39,9 @@ class App extends Component {
     }
 
    _searchById = (event) => {
-    const Id = event.target.Id.value
-     axios.get(`http://www.omdbapi.com/?apikey=d31f1a94&i=${Id}`, {
+     event.preventDefault()
+    const id = event.target.id.value
+     axios.get(`http://www.omdbapi.com/?apikey=d31f1a94&i=${id}`, {
     }).then((response) => {
           console.log(response)
             this.setState({ 
