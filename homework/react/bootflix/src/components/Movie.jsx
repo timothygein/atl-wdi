@@ -10,7 +10,7 @@ const Movie = (props) => {
         <p>
           <strong>Released: {props.year}</strong> 1984<br />
           <strong>Directed By: {props.director}</strong> Some director<br />
-          <em>Genre:{props.genre}</em>
+          <em>Genre:{props.genre} </em>
         </p>
         <p>Plotline should go inside of here</p>
       </div>
