@@ -160,5 +160,4 @@ ary.each do |i|
     Please explain why.
 
   ```text
-    Your answer here:
-  ```
+yes because once you definie that new class it automatically overwrites everything youve previously done  ```
